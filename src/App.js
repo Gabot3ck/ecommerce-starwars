@@ -1,10 +1,11 @@
 import './App.css';
+import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar.jsx';
 
 function App() {
   return <>
-  <NavBar />
-  <h1>e-Commerce de Star Wars</h1>;
+    <NavBar />
+    <ItemListContainer />
   </>
 
 }
