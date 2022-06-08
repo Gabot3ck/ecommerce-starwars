@@ -4,7 +4,12 @@ const ItemCount = ({initial, max, onAdd})=> {
     const [count, setCount] = useState(initial)
 
     const sumar = () => {
-        count < max ? setCount(count + 1) : alert("No se pueden agregar más productos")
+        if(max > 0 ){
+            count < max ? setCount(count + 1) : alert("No se pueden agregar más productos")
+        } else {
+            alert("Producto sin stock, no se puede agregar al carrito.")
+        }
+        
     }
 
     const restar = () => {
