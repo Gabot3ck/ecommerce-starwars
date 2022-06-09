@@ -10,8 +10,9 @@ function App() {
 
   return <>
     <NavBar />
-    <ItemListContainer />
     <ItemCount initial={1} max={5} onAdd={onAdd}/>
+    <ItemListContainer />
+    
   </>
 
 }
