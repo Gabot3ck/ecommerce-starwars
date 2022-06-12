@@ -1,5 +1,6 @@
 import './App.css';
 import ItemCount from './components/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar.jsx';
 
@@ -12,6 +13,7 @@ function App() {
     <NavBar />
     <ItemCount initial={1} max={5} onAdd={onAdd}/>
     <ItemListContainer />
+    <ItemDetailContainer />
     
   </>
 
