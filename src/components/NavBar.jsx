@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 function NavBar() {
     return (
@@ -13,12 +14,13 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-link active" aria-current="page" href="/">Home</a>
-                        <a className="nav-link" href="/">Ropa</a>
-                        <a className="nav-link" href="/">Juguetes</a>
-                        <a className="nav-link" href="/">Juegos de mesa</a>
-                        <a className="nav-link" href="/">Películas</a>
-                        <a className="nav-link" href="/">Series</a>
+                        <Link className="nav-link active" aria-current="page" to={"/Home"}>Home</Link>
+                        <Link className="nav-link" to={"/Ropa"} >Ropa</Link>
+                        <Link className="nav-link" to={"/Juguetes"} >Juguetes</Link>
+                        <Link className="nav-link" to={"/Juegos"} >Juegos de mesa</Link>
+                        <Link className="nav-link" to={"/Peliculas"} >Películas</Link>
+                        <Link className="nav-link" to={"/Series"} >Series</Link>
+                        <Link className="nav-link" to={"/Contacto"} >Contacto</Link>
                     </div>
                 </div>
                 <CartWidget acc={0}/>

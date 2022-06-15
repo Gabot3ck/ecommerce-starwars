@@ -1,6 +1,10 @@
 .contenedor{
     width: 90vw;
-    max-height: 350px;
+    height: contain;
     display: flex;
-    gap: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: end;
+    flex-wrap: wrap;
+    background-color: rgb(204, 204, 204);
 }
