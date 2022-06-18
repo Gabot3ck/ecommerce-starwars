@@ -1,7 +1,8 @@
 import "./Item.css"
+import { Link } from "react-router-dom";
 
 function Item({product}) {
-    const {titulo,image} = product
+    const {titulo,image,id} = product
     
     return(
         <>
@@ -9,6 +10,7 @@ function Item({product}) {
             <img src={image} className="card-img-top imagen mx-auto img-fluid" alt="..."></img>
             <div className="card-body">
                 <h5 className="card-title">{titulo}</h5>
+                <Link to={`/item/${id}`} class="btn btn-primary">Abrir</Link>
             </div> 
         </div>
         </>

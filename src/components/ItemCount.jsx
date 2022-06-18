@@ -21,11 +21,13 @@ const ItemCount = ({initial, max, onAdd})=> {
     }
     
     return (
-        <div className="w-50 mx-auto  text-center p-4">
+        <div className="w-100 mx-auto  text-center p-1">
             <h2 className="">{count}</h2>
-            <button className="btn btn-secondary" onClick={restar}>-</button>
-            <button className="my-3 mx-2 btn btn-primary" onClick={()=> {onAdd(count); reset()}}>Agregar al carrito</button>
-            <button className="btn btn-secondary" onClick={sumar}>+</button>
+            <div className="d-flex justify-content-center align-items-center ">
+                <button className="btn btn-secondary" onClick={restar}>-</button>
+                <button className="my-3 mx-2 btn btn-primary" onClick={()=> {onAdd(count); reset()}}>Agregar al carrito</button>
+                <button className="btn btn-secondary" onClick={sumar}>+</button>
+            </div>
             <br />
             <button className="btn btn-danger" onClick={reset}>Reset</button>
         </div>
