@@ -14,12 +14,12 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link className="nav-link active" aria-current="page" to={"/Home"}>Home</Link>
-                        <Link className="nav-link" to={"/Ropa"} >Ropa</Link>
-                        <Link className="nav-link" to={"/Juguetes"} >Juguetes</Link>
-                        <Link className="nav-link" to={"/Juegos"} >Juegos de mesa</Link>
-                        <Link className="nav-link" to={"/Peliculas"} >Películas</Link>
-                        <Link className="nav-link" to={"/Series"} >Series</Link>
+                        <Link className="nav-link active" aria-current="page" to={"/"}>Home</Link>
+                        <Link className="nav-link" to={"/category/ropa"} >Ropa</Link>
+                        <Link className="nav-link" to={"/category/juguetes"} >Juguetes</Link>
+                        <Link className="nav-link" to={"/category/juegos"} >Juegos de mesa</Link>
+                        <Link className="nav-link" to={"/category/peliculas"} >Películas</Link>
+                        <Link className="nav-link" to={"/category/series"} >Series</Link>
                         <Link className="nav-link" to={"/Contacto"} >Contacto</Link>
                     </div>
                 </div>
