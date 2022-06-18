@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 
-function ItemDetail({ toy }) {
-    const { nombre, apellido, image, precio, descripcion, stock } = toy;
+function ItemDetail({ item }) {
+    const { nombre, apellido, image, precio, descripcion, stock } = item;
 
     const onAdd = (count) => {
     alert(`Acabas de agregar ${count} productos a tu carrito de compras`);

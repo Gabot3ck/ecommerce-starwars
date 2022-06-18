@@ -3,11 +3,11 @@ import ItemDetail from "./ItemDetail";
 
 
 function ItemDetailContainer() {
-    const [toy, setToy] = useState();
+    const [item, setItem] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const juguetes = new Promise((res, rej) => {
+        const productos = new Promise((res, rej) => {
             setTimeout(() => {
                 res({ 
                     id:'001', 
@@ -20,9 +20,9 @@ function ItemDetailContainer() {
             }, 2000);
         });
 
-        juguetes
+        productos
             .then((res) => {
-                setToy(res);
+                setItem(res);
                 setIsLoading(false);
             })
             .catch(error => console.error("Error:", error))
@@ -31,7 +31,7 @@ function ItemDetailContainer() {
     
     
     return( <>
-        {isLoading ? "Cargando detalle ..." : <ItemDetail toy={toy} />}
+        {isLoading ? "Cargando detalle ..." : <ItemDetail item={item} />}
     </>)
 
 }

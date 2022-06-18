@@ -4,11 +4,11 @@ function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="https://www.starwars.com" target="blank">
+                <Link className="navbar-brand" to="/">
                     <img src="https://www.citypng.com/public/uploads/preview/-51608494060e1tvtjfsry.png" alt="" width="62" height="30" className="d-inline-block align-text-top">
                     </img>
                     Star Wars Store
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

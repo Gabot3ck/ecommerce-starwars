@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import {useParams} from 'react-router-dom';
 import ItemList from "./ItemList";
 import ItemListLayout from "./ItemListLayout";
 
+
 function ItemListContainer() {
-    const greet = ["Bienvenido al E-Commerce de Star Wars "]
-    const [products, setProducts] = useState([])
+    const greet = ["Bienvenido al E-Commerce de Star Wars "];
+    const [products, setProducts] = useState([]);
+    const {id} = useParams();
+    // const [selectedItems, setSelectedItems] = useState([]);
 
     useEffect(() => {
-        const juguetes = new Promise((res, rej) => {
+        const productos = new Promise((res, rej) => {
             setTimeout(() => {
                 res([
                 { id:'001', category:'juguetes', titulo: 'Anakin Skywalker', image:'https://m.media-amazon.com/images/I/71xNjFxx6ZL._AC_SX569_.jpg' },
@@ -37,13 +41,16 @@ function ItemListContainer() {
                 ]);
             }, 2000);
         });
-        juguetes
+
+        productos
             .then(res => setProducts(res))
-            .catch(error => console.error("Error:", error))
+            .catch(error => console.error("Error:", error));
+
     
-    }, [])
+    }, [id]);
+
     
-    
+
     return( <>
         <ItemListLayout greeting={greet} name={"Gabriel"}/>
         <ItemList products={products} />
