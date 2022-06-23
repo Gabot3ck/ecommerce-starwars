@@ -5,25 +5,23 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Contacto from './components/Contacto';
+import CartContext from './contexts/CartContext';
 
+export default function App() {
 
-
-function App() {
-  return( <>
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer />}/>
-        <Route path='/category/:id' element={<ItemListContainer />}/>
-        <Route path='/item/:id' element={<ItemDetailContainer />}/>
-        <Route path='/cart' element={<Cart />}/>
-        <Route path='/contacto' element={<Contacto />}/>
-        <Route path='*' element={<h1>Not Found</h1>}/>
-      </Routes>
-    </BrowserRouter>
-    
-  </> )
-
+  return (<>
+    <CartContext>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/category/:id' element={<ItemListContainer />}/>
+          <Route path='/item/:id' element={<ItemDetailContainer />}/>
+          <Route path='/cart' element={<Cart />}/>
+          <Route path='/contacto' element={<Contacto />}/>
+          <Route path='*' element={<h1>Not Found</h1>}/>
+        </Routes>
+      </BrowserRouter>
+      </CartContext>
+  </>)
 }
-
-export default App;

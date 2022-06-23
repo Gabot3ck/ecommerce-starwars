@@ -1,15 +1,20 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import {MiContext} from "../contexts/CartContext";
 
 function ItemDetail({ item }) {
-    const { titulo, image, stock, precio } = item;
+    const { titulo, image, stock, precio, id } = item;
 
     const [mostrar, setMostrar] = useState(true);
 
-    const onAdd = (count) => {
-        alert(`Acabas de agregar ${count} productos a tu carrito de compras`);
+    const {isInCart, addItem} = useContext(MiContext);
+
+    const onAdd = (cantidad) => {
+        alert(`Acabas de agregar ${cantidad} productos a tu carrito de compras`);
         setMostrar(false);
+        isInCart(id);
+        addItem(item, cantidad);
     };
 
     return (<>
@@ -18,7 +23,7 @@ function ItemDetail({ item }) {
         <div className="card-body text-center">
             <h5 className="card-title">{titulo}</h5>
             <h6 className="card-subtitle mb-2  text-danger ">Precio: $CLP {precio}</h6>
-            { mostrar ? <ItemCount  stock={stock} onAdd={onAdd} initial={1}/> : <Link to={`/cart`} class="btn btn-primary">Ir a carrito</Link>}
+            { mostrar ? <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : <Link to={`/cart`} class="btn btn-primary">Ir a carrito</Link>}
         </div>
     </div>
     

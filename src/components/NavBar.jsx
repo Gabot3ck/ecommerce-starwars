@@ -23,7 +23,7 @@ function NavBar() {
                         <Link className="nav-link" to={"/contacto"} >Contacto</Link>
                     </div>
                 </div>
-                <CartWidget acc={0}/>
+                <CartWidget/>
             </div>
         </nav>
     );
