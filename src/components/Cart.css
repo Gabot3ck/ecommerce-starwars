@@ -1,0 +1,56 @@
+.contenedor__detalles{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-areas: 
+    " .     titulo  titulo  tituloUni  tituloTot  . ";
+    justify-items: start;
+}
+.titulo{
+    grid-area: titulo;
+}
+.tituloUni{
+    grid-area: tituloUni;
+}
+.tituloTot{
+    grid-area: tituloTot;
+}
+.item{
+    grid-column: 1/ span 7;
+}
+.detalle__producto{
+    border-bottom: 1px solid white;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    " foto    producto  producto  precioUni  precioTot  eliminar ";
+    align-items: center;
+    justify-items: start;
+}
+.foto{
+    width: 65PX;
+    height: 70px;
+    grid-area: foto;
+}
+.producto{
+    grid-area: producto;
+}
+.precioUni{
+    grid-area: precioUni;
+}
+.precioTot{
+    grid-area: precioTot;
+}
+.eliminar{
+    grid-area: eliminar;
+}
+.btn-vaciar{
+    border: none;
+    background-color: transparent;
+}
+.bi-cart3{
+    font-size: 3rem;
+}
+
+

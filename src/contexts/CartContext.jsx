@@ -34,7 +34,7 @@ export default function CartContext( {children} ) {
     }
 
     const enviarCant = () => {
-        return cart.reduce((acc,item) => acc += item.cantidad, 0)
+        return  cart.reduce((acc,item) => acc += item.cantidad, 0)
     }
 
     const precioTotal = () => {

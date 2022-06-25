@@ -11,7 +11,6 @@ function ItemDetail({ item }) {
     const {isInCart, addItem} = useContext(MiContext);
 
     const onAdd = (cantidad) => {
-        alert(`Acabas de agregar ${cantidad} productos a tu carrito de compras`);
         setMostrar(false);
         isInCart(id);
         addItem(item, cantidad);
@@ -23,7 +22,7 @@ function ItemDetail({ item }) {
         <div className="card-body text-center">
             <h5 className="card-title">{titulo}</h5>
             <h6 className="card-subtitle mb-2  text-danger ">Precio: $CLP {precio}</h6>
-            { mostrar ? <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : <Link to={`/cart`} class="btn btn-primary">Ir a carrito</Link>}
+            { mostrar ? <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : <Link to={`/cart`} class="btn btn-primary">Terminar mi compra</Link>}
         </div>
     </div>
     
