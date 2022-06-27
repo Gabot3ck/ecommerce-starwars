@@ -1,13 +1,25 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar.jsx';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Contacto from './components/Contacto';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar.jsx';
 import CartContext from './contexts/CartContext';
+import { initializeApp } from "firebase/app";
+
+
 
 export default function App() {
+
+  initializeApp({
+    apiKey: "AIzaSyCD7O6Ds-wWxzbuwWU1eiIS5pR1Pdbe1rE",
+    authDomain: "star-wars-store-dd1b6.firebaseapp.com",
+    projectId: "star-wars-store-dd1b6",
+    storageBucket: "star-wars-store-dd1b6.appspot.com",
+    messagingSenderId: "740289420345",
+    appId: "1:740289420345:web:62acd7320e477b189b81e8"
+  });
 
   return (<>
     <CartContext>

@@ -18,8 +18,6 @@ function NavBar() {
                         <Link className="nav-link" to={"/category/ropa"} >Ropa</Link>
                         <Link className="nav-link" to={"/category/juguetes"} >Juguetes</Link>
                         <Link className="nav-link" to={"/category/juegos"} >Juegos de mesa</Link>
-                        <Link className="nav-link" to={"/category/peliculas"} >Películas</Link>
-                        <Link className="nav-link" to={"/category/series"} >Series</Link>
                         <Link className="nav-link" to={"/contacto"} >Contacto</Link>
                     </div>
                 </div>
