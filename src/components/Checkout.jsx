@@ -78,7 +78,7 @@ export default function Checkout() {
             { detalles === false &&
             <>
                 <div className='d-flex flex-column justify-content-center align-items-center'>
-                    <p>Su compra se realizó correctamente con el código:</p> <br/>
+                    <p>Su orden se realizó correctamente con el código:</p> <br/>
                     <h4>{idCompra}</h4>
                 </div>
                 
