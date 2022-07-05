@@ -14,7 +14,7 @@ export default function CartContext( {children} ) {
 
     const addItem = (item, cantidad) => {
         let posicion = isInCart(item.id)
-        console.log(posicion)
+
         if(posicion === -1){
             setCart([...cart,{...item,cantidad:cantidad}])
         } else {

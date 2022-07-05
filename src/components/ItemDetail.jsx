@@ -18,7 +18,7 @@ function ItemDetail({ item }) {
 
     return (<>
         <div className="card mx-auto w-25 mb-5 mt-5">
-        <img src={image} className="card-img-top imagen mx-auto img-fluid w-50" alt="..."></img>
+        <img src={image} className="card-img-top mx-auto imagen img-fluid w-50" alt="..."></img>
         <div className="card-body text-center">
             <h5 className="card-title">{titulo}</h5>
             <h6 className="card-subtitle mb-2  text-danger ">Precio: $CLP {precio}</h6>

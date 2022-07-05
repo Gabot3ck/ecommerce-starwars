@@ -4,7 +4,8 @@ import Cart from './components/Cart';
 import Contacto from './components/Contacto';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar.jsx';
+import NavBar from './components/NavBar';
+import Checkout from './components/Checkout';
 import CartContext from './contexts/CartContext';
 import { initializeApp } from "firebase/app";
 
@@ -31,6 +32,7 @@ export default function App() {
           <Route path='/item/:id' element={<ItemDetailContainer />}/>
           <Route path='/cart' element={<Cart />}/>
           <Route path='/contacto' element={<Contacto />}/>
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='*' element={<h1>Not Found</h1>}/>
         </Routes>
       </BrowserRouter>

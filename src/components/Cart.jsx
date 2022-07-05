@@ -33,7 +33,7 @@ export default function Cart() {
                     <div className='bg-warning m-4 p-3 rounded-3'>
                         <h5>Total a pagar: CLP $ {precioTotal()}</h5>
                         <div className='mt-4'>
-                            <button className="btn btn-danger me-3">Finalizar compra</button>
+                            <Link className="btn btn-danger me-3" to={"/checkout"}>Finalizar compra</Link>
                             <button onClick={()=> clear()} className="btn-vaciar" >Vaciar Carrito</button>
                         </div>
                     </div>
