@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 import ItemList from "./ItemList";
-import ItemListLayout from "./ItemListLayout";
 import {collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 
 
 function ItemListContainer() {
-    const greet = ["Bienvenido al E-Commerce de Star Wars "];
     const {id} = useParams();
     const [items, setItems] = useState([]);
 
@@ -35,7 +33,6 @@ function ItemListContainer() {
     
 
     return( <>
-        <ItemListLayout greeting={greet} name={"Gabriel"}/>
         <ItemList products={items} />
     </>)
 
