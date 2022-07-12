@@ -7,7 +7,7 @@ function Item({product}) {
     return(
         <>
         <div className="col-12 col-sm-6 col-md-4  col-lg-3 d-flex justify-content-center">
-            <div className="card mx-2 mb-4 mt-1 " >
+            <div className="card mx-2 mb-4 mt-1 card-item" >
                 <img src={image} className="card-img-top imagen mx-auto" alt="..."></img>
                 <div className="card-body bg-dark d-flex flex-column justify-content-between">
                     <h5 className="card-title">{titulo}</h5>

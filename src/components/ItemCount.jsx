@@ -20,13 +20,12 @@ const ItemCount = ({initial, stock, onAdd})=> {
     
     return (
         <div className="w-100 mx-auto  text-center p-1">
-            <h2 className="">{cantidad}</h2>
-            <div className="d-flex justify-content-center align-items-center ">
-                <button className="btn btn-secondary" onClick={restar}>-</button>
-                <button className="my-3 mx-2 btn btn-primary" onClick={()=> {onAdd(cantidad)}}>Agregar al carrito</button>
-                <button className="btn btn-secondary" onClick={sumar}>+</button>
+            <div className="d-flex justify-content-evenly align-items-center botonera">
+                <button className="btn btn-count" onClick={restar}>-</button>
+                <p className="count p-0 m-0">{cantidad}</p>
+                <button className="btn btn-count" onClick={sumar}>+</button>
             </div>
-            <br />
+            <button className="mt-3 w-75 mx-auto btn  btn-cart" onClick={()=> {onAdd(cantidad)}}>Agregar al carrito</button>
         </div>
     )
 }

@@ -2,9 +2,10 @@ import ItemCount from "./ItemCount";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import {MiContext} from "../contexts/CartContext";
+import "./ItemDetail.css";
 
 function ItemDetail({ item }) {
-    const { titulo, image, stock, precio, id } = item;
+    const { titulo, image, stock, precio, id, descripcion} = item;
 
     const [mostrar, setMostrar] = useState(true);
 
@@ -17,15 +18,22 @@ function ItemDetail({ item }) {
     };
 
     return (<>
-        <div className="card mx-auto w-25 mb-5 mt-5">
-        <img src={image} className="card-img-top mx-auto imagen img-fluid w-50" alt="..."></img>
-        <div className="card-body text-center">
-            <h5 className="card-title">{titulo}</h5>
-            <h6 className="card-subtitle mb-2  text-danger ">Precio: $CLP {precio}</h6>
-            { mostrar ? <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : <Link to={`/cart`} class="btn btn-primary">Terminar mi compra</Link>}
+        <div className="card mx-auto my-5 card-detail bg-dark">
+            <img src={image} className="card-img-top mx-auto imagen-detail" alt="..."></img>
+            <div className="card-body text-center">
+                <p className="card-subtitle mb-2 ">$CLP {precio}</p>
+                <h3 className="card-title title-detail">{titulo}</h3>
+                <p className="descripcion p-0 my-3">{descripcion}</p>
+                { mostrar ? 
+                <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : 
+                <>
+                    <Link to={`/cart`} class="btn btn-warning w-50">Terminar mi compra</Link><br/>
+                    <Link to={`/`} class="btn btn-second mt-3 w-50">Seguir comprando</Link>
+                </>
+                
+                }
+            </div>
         </div>
-    </div>
-    
     </>);
 
 }
