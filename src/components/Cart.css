@@ -1,9 +1,24 @@
+:root{
+    --color-principal: #d1be19;
+    --color-principalHover: #f8e74e;
+    --color-fondo: #212529;
+}
+.contenedor_cart{
+    color: var(--color-principal);
+    background-color: rgba(48, 48, 46, 0.6);
+}
 .contenedor__detalles{
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-template-areas: 
     " .     titulo  titulo  tituloUni  tituloTot  . ";
     justify-items: start;
+    color: white;
+    background-color: rgb(24, 24, 22);
+}
+.contenedor_total{
+    color: white;
+    background-color: rgb(24, 24, 22);
 }
 .titulo{
     grid-area: titulo;
@@ -18,7 +33,7 @@
     grid-column: 1/ span 7;
 }
 .detalle__producto{
-    border-bottom: 1px solid white;
+    border-top: 1px solid white;
     display: grid;
     grid-template-columns: repeat(6,1fr);
     grid-template-rows: auto;
@@ -50,7 +65,17 @@
     background-color: transparent;
 }
 .bi-cart3{
-    font-size: 3rem;
+    font-size: 3.8rem;
 }
-
-
+.btn-link{
+    border: 1px solid var(--color-principal);
+    color: var(--color-principal);
+    background-color: transparent;
+    text-decoration: none;
+    transition: all .35s ease-in-out;
+}
+.btn-link:hover{
+    border: 1px solid var(--color-principal);
+    color: black;
+    background-color: var(--color-principal);
+}

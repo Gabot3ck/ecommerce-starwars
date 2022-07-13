@@ -6,19 +6,19 @@ import {Link} from "react-router-dom";
 
 export default function Cart() {
 
-    const {cart,clear,removeItem,precioTotal} = useContext(MiContext)
+    const {cart,clear,removeItem,precioTotal, enviarCant} = useContext(MiContext)
     return (<>
-        <div className='container mt-4 mb-4 w-75 bg-success p-2 text-center rounded-5'>
-            <h4>Mi Carrito</h4>
+        <div className='container mt-4 mb-4 w-75  p-2 text-center rounded-5 contenedor_cart'>
+            <h2>Carrito</h2>
             { cart.length > 0 && 
                 <>
-                    <div className='bg-white m-4 p-2 rounded-4 contenedor__detalles'>
+                    <div className='m-4 py-2 rounded-4 contenedor__detalles'>
                         <p className='titulo'>Producto</p>
                         <p className='tituloUni'>Precio unitario</p>
                         <p className='tituloTot'>Precio total</p>
                         {cart.map((el, index) => {
                             return(<>
-                                <div className='w-100 bg-primary w-50  rounded-3 item' key={index}>
+                                <div className='w-100  w-50  rounded-3 item' key={index}>
                                     <div className='detalle__producto w-100'> 
                                         <img src={el.image} className="card-img-top my-2 mx-auto img-fluid w-50 foto rounded-2" alt="..."></img>
                                         <p className='text-center producto'> {el.titulo} x {el.cantidad} </p>
@@ -30,11 +30,11 @@ export default function Cart() {
                             </>) 
                         })}
                     </div>
-                    <div className='bg-warning m-4 p-3 rounded-3'>
-                        <h5>Total a pagar: CLP $ {precioTotal()}</h5>
+                    <div className='m-4 p-3 rounded-3 contenedor_total'>
+                        <h5>Total a pagar: CLP $ {precioTotal()} ({enviarCant()} producto/s) </h5>
                         <div className='mt-4'>
-                            <Link className="btn btn-danger me-3" to={"/checkout"}>Finalizar compra</Link>
-                            <button onClick={()=> clear()} className="btn-vaciar" >Vaciar Carrito</button>
+                            <Link className="btn btn-warning w-25 me-3" to={"/checkout"}>Finalizar compra</Link>
+                            <button onClick={()=> clear()} className="btn btn-second" >Vaciar Carrito</button>
                         </div>
                     </div>
                 </>
@@ -42,8 +42,8 @@ export default function Cart() {
             {!cart.length > 0 && 
                 <>
                     <i class="bi bi-cart3"></i>
-                    <h1> Su carrito está vacío </h1>
-                    <Link className="btn btn-danger my-3" to={"/"}>Ir a tienda</Link>
+                    <h3 className='text-white'> Su carrito está vacío </h3>
+                    <Link className="btn btn-link my-3" to={"/"}>Ir a tienda</Link>
                 </>
                 
             }

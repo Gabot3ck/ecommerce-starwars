@@ -27,7 +27,7 @@ function ItemDetail({ item }) {
                 { mostrar ? 
                 <ItemCount item={item} stock={stock} onAdd={onAdd} initial={1}/> : 
                 <>
-                    <Link to={`/cart`} class="btn btn-warning w-50">Terminar mi compra</Link><br/>
+                    <Link to={`/cart`} class="btn btn-warning w-50">Ir a carrito</Link><br/>
                     <Link to={`/`} class="btn btn-second mt-3 w-50">Seguir comprando</Link>
                 </>
                 
