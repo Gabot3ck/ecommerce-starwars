@@ -2,6 +2,7 @@
     --color-principal: #d1be19;
     --color-principalHover: #f8e74e;
     --color-fondo: #212529;
+    --color-contenedor: #181816;
 }
 .contenedor_cart{
     color: var(--color-principal);
@@ -14,11 +15,11 @@
     " .     titulo  titulo  tituloUni  tituloTot  . ";
     justify-items: start;
     color: white;
-    background-color: rgb(24, 24, 22);
+    background-color: var(--color-contenedor);
 }
 .contenedor_total{
     color: white;
-    background-color: rgb(24, 24, 22);
+    background-color: var(--color-contenedor);
 }
 .titulo{
     grid-area: titulo;

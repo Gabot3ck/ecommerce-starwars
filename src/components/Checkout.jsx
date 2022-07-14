@@ -4,11 +4,6 @@ import { MiContext } from "../contexts/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 
-
-
-
-
-
 export default function Checkout() {
 
     const [name, setName] = useState('');
@@ -41,13 +36,13 @@ export default function Checkout() {
     }
 
     return (<>
-        <section className="w-75 mx-auto bg-success my-5 p-3 rounded-3">
-            <h4 className="text-center">Resumen de compra</h4>
-            <div  className="w-100 mx-auto bg-warning my-5 p-3 rounded-3 d-flex align-items-center justify-content-evenly">
+        <section className="container mt-4 mb-4 w-75  py-2 px-4 text-center rounded-5 contenedor_cart">
+            <h2 className="text-center">Resumen de compra</h2>
+            <div  className="w-100 mx-auto  my-5 p-3 rounded-3 d-flex align-items-center justify-content-evenly">
             { detalles === true && 
             <>
-                <div className=" bg-primary h-100 mx-3 w-50">
-                    <h5>Productos</h5>
+                <div className="mx-3 px-2 w-50 rounded-4 detalles_checkout">
+                    <h5 className='mt-4 text-center'>Productos</h5>
                     {cart.map((el, index) => {
                         return(<>
                             <div className="mx-3 my-4 d-flex" key={index}>
@@ -62,17 +57,17 @@ export default function Checkout() {
                     })}
                     <hr/>
                     <div className="d-flex justify-content-around">
-                        <p>importe final:  </p>
-                        <p>CLP$ {precioTotal()}</p>
+                        <p className="precio_final">Importe final:  </p>
+                        <p className="precio_final">CLP$ {precioTotal()}</p>
                     </div>
                     
                 </div>
-                <div className=" bg-primary h-100 mx-3 w-50">
+                <form className="mx-3 w-50 rounded-4 formulario">
                     <input onChange={(e) => setName (e.target.value)} placeholder="Ingrese nombre"></input> <br/>
                     <input onChange={(e) => setEmail (e.target.value)} placeholder="Ingrese cel"></input> <br/>
                     <input onChange={(e) => setCel (e.target.value)} placeholder="Ingrese email"></input> <br/> <br/>
-                    <button onClick={() => handleClick()}>Terminar compra</button> <br/>
-                </div>
+                    <button className='btn btn-warning w-50' onClick={() => handleClick()}>Terminar compra</button> <br/>
+                </form>
             </>
             }
             { detalles === false &&
