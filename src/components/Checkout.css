@@ -11,7 +11,7 @@
 }
 .detalles_checkout{
     height: auto;
-    min-height: 350px;
+    min-height: 370px;
     text-align: start;
     color: white;
     background-color: var(--color-contenedor);
@@ -37,6 +37,30 @@
 }
 .formulario{
     height: auto;
-    min-height: 350px;
+    min-height: 370px;
     background-color: var(--color-contenedor);
+}
+.form-input {
+    margin: 10px auto 20px;
+    border: 1px solid var(--color-contenedor);
+    width: 80%;
+    height: 1.3rem;
+    display: inline-block;
+    color: white;
+    font-size: 1rem;
+    background-color: transparent;
+}
+.form-input:focus, 
+.form-input:visited, 
+.form-input:active {
+    color: white;
+    background-color: transparent;
+    box-shadow: none;
+}
+label{
+    color: #999997;
+    font-size: .9rem;
+}
+.formulario h5{
+    color: white;
 }
