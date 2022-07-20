@@ -64,16 +64,43 @@ export default function Checkout() {
                 </div>
                 <form className="mx-3 w-50 rounded-4 formulario">
                     <h5 className='my-4 text-center'>Ingrese sus datos personales</h5>
-                    <label className='d-block text-start mx-3' for="nombre" id="labelNombre" >Nombre y apellido:</label>
+                    <label className='d-block text-start mx-3' htmlFor="nombre"  id="labelNombre" >Nombre y apellido:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon1"></i>
-                    <input onChange={(e) => setName (e.target.value)} className="form-input"  id="nombre" autofocus></input> <br/>
-                    <label className='d-block text-start mx-3' for="celular" id="labelEmail" >Celular:</label>
+                    <input
+                        onChange={(e) => setName (e.target.value)}
+                        className="form-input" 
+                        name="nombre" 
+                        id="nombre" 
+                        type="text"
+                    />
+                    <br/>
+                    <label className='d-block text-start mx-3' htmlFor="celular"  
+                    id="labelEmail" >Celular:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon2"></i>
-                    <input onChange={(e) => setEmail (e.target.value)} className="form-input" id="celular"  maxLength="11"></input> <br/>
-                    <label className='d-block text-start mx-3' for="email" id="labelEmail" >Email:</label>
+                    <input 
+                        onChange={(e) => setEmail (e.target.value)}
+                        className="form-input" 
+                        name="celular" 
+                        id="celular" 
+                        type="cell"  
+                        maxLength="11"
+                    /><br/>
+                    <label className='d-block text-start mx-3' htmlFor="email" 
+                    id="labelEmail" >Email:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon3"></i>
-                    <input onChange={(e) => setCel (e.target.value)} className="form-input" id='email'></input> <br/> <br/>
-                    <button className='btn btn-warning w-50' onClick={() => handleClick()}>Terminar compra</button> <br/>
+                    <input 
+                        onChange={(e) => setCel (e.target.value)}
+                        className="form-input" 
+                        name="email" 
+                        id='email' 
+                        type="email"
+                    /><br/> <br/>
+                    <button 
+                        className='btn btn-warning w-50' 
+                        onClick={() => handleClick()} 
+                        type="submit">
+                        Terminar compra
+                    </button> <br/>
                 </form>
             </>
             }
