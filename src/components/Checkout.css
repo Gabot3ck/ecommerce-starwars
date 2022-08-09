@@ -64,3 +64,13 @@ label{
 .formulario h5{
     color: white;
 }
+.bloqueado{
+	opacity: 35% !important;
+    cursor: not-allowed !important;
+}
+.alerta{
+    display: block;
+    font-size: .9rem;
+    color: #e73c29;
+    text-align: start;
+}

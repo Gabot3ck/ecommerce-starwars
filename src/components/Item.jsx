@@ -12,7 +12,7 @@ function Item({product}) {
                 <div className="card-body bg-dark d-flex flex-column justify-content-between">
                     <h5 className="card-title">{titulo}</h5>
                     <p className="precio-card">$CLP {precio}</p>
-                    <Link to={`/item/${id}`} class="btn btn-warning">Ver detalles</Link>
+                    <Link to={`/item/${id}`} className="btn btn-warning">Ver detalles</Link>
                     <p className="stock-card p-0 m-0">Stock: {stock} uds.</p>
                 </div> 
             </div>

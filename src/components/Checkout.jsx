@@ -1,17 +1,23 @@
 import './Checkout.css';
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { MiContext } from "../contexts/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+
 
 
 export default function Checkout() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [cel, setCel] = useState('');
+    const [cell, setCell] = useState('');
     const [detalles, setDetalles] = useState(true);
     const [idCompra, setIdCompra] = useState("");
     const {cart, precioTotal} = useContext(MiContext);
+    
+    const [mensajeEmail, setMensajeEmail] = useState("");
+    const [mensajeName, setMensajeName] = useState("");
+    const [mensajeCelu, setMensajeCelu] = useState("");
+    const [btnActive, setBtnActive] = useState(true);
 
     const db = getFirestore();
     const orderCollection = collection(db,"orders");
@@ -24,7 +30,7 @@ export default function Checkout() {
         const total = precioTotal();
 
         const order = {
-            buyer: {name, email, cel},
+            buyer: {name, email, cell},
             items: cart,
             date ,
             total
@@ -34,6 +40,64 @@ export default function Checkout() {
             setIdCompra(id)
         })
     }
+
+
+
+
+    function validateEmail(e) {
+        const valueEmail = e.target.value;
+        const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+        switch(valueEmail.length > 0){
+    
+            case(valueEmail !== ""):
+                if (e.target.type === "email") {
+                
+                    if (er.test(e.target.value)) {
+                        setMensajeEmail("");
+    
+                    } else {
+                        setMensajeEmail("Debe ingresar un email válido")
+                    }
+                }
+                break;
+            
+            default:
+                setMensajeEmail("Debe ingresar un email válido");
+        }
+    }
+
+    function validateName(e){
+        const value = e.target.value;
+        if(value !== ""){
+            setMensajeName("");
+        } else {
+            setMensajeName("Debe ingresar su nombre y apellido")
+        }
+    }
+
+    function validateCelu(e){
+        const value = e.target.value;
+        if(value !== ""){
+            setMensajeCelu("");
+        } else {
+            setMensajeCelu("Debe ingresar su número de celular")
+        }
+    }
+
+    useEffect(() => {
+
+        const handleDOMLoaded = () => setBtnActive(true)
+
+        if(name === "" || cell === "" || email === "") {
+            window.addEventListener('DOMContentLoaded', handleDOMLoaded);
+        } else {
+            window.removeEventListener('DOMContentLoaded', handleDOMLoaded)
+            setBtnActive(false)
+        }
+        return () => window.removeEventListener('DOMContentLoaded', handleDOMLoaded);
+    }, [name,cell,email]);
+
 
     return (<>
         <section className="container mt-4 mb-4 w-75  py-2 px-4 text-center rounded-5 contenedor_cart">
@@ -50,7 +114,6 @@ export default function Checkout() {
                                 <div className="detalles ms-3">
                                     <p>{el.cantidad} x {el.titulo}</p>
                                     <p>{el.cantidad} x CLP$ {el.precio} = CLP$ {el.cantidad * el.precio}</p>
-
                                 </div>
                             </div>
                         </>)
@@ -62,48 +125,67 @@ export default function Checkout() {
                     </div>
                     
                 </div>
+
                 <form className="mx-3 w-50 rounded-4 formulario">
                     <h5 className='my-4 text-center'>Ingrese sus datos personales</h5>
+
+                    {/* Validación de Nombre */}
                     <label className='d-block text-start mx-3' htmlFor="nombre"  id="labelNombre" >Nombre y apellido:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon1"></i>
                     <input
-                        onChange={(e) => setName (e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
+                        onBlur={validateName}
                         className="form-input" 
                         name="nombre" 
                         id="nombre" 
                         type="text"
+                        autoComplete='off'
                     />
-                    <br/>
+                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeName !== "" ? mensajeName : ""}</span>
+
+                    {/* Validación de Celular */}
                     <label className='d-block text-start mx-3' htmlFor="celular"  
-                    id="labelEmail" >Celular:</label>
+                    id="labelCelular" >Celular:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon2"></i>
                     <input 
-                        onChange={(e) => setEmail (e.target.value)}
-                        className="form-input" 
+                        onChange={(e) => setCell(e.target.value)}
+                        onBlur={validateCelu}
+                        className="form-input"
                         name="celular" 
                         id="celular" 
                         type="cell"  
                         maxLength="11"
-                    /><br/>
+                        autoComplete='off'
+                    />
+                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeCelu !== "" ? mensajeCelu : ""}</span>
+
+                    {/* Validación de Email */}
                     <label className='d-block text-start mx-3' htmlFor="email" 
                     id="labelEmail" >Email:</label>
                     <i className="bi bi-arrow-right me-2 " id="icon3"></i>
                     <input 
-                        onChange={(e) => setCel (e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onBlur={validateEmail}
                         className="form-input" 
                         name="email" 
                         id='email' 
                         type="email"
-                    /><br/> <br/>
+                        autoComplete='off'
+                    />
+                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
+
                     <button 
-                        className='btn btn-warning w-50' 
+                        className={`btn btn-warning w-50 ${btnActive ? "bloqueado" : ""} `}
                         onClick={() => handleClick()} 
-                        type="submit">
+                        type="submit"
+                        disabled={btnActive}>
                         Terminar compra
-                    </button> <br/>
+                    </button>
+                    <br/>
                 </form>
             </>
             }
+
             { detalles === false &&
             <>
                 <div className='d-flex flex-column justify-content-center align-items-center'>

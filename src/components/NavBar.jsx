@@ -21,8 +21,8 @@ function NavBar() {
                     Star Wars Store
                 </Link>
                 <button onClick={()=> isActive()} className= {`navbar-toggler hamburger hamburger--spring ${active ? "is-active" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
+                    <span className="hamburger-box">
+                        <span className="hamburger-inner"></span>
                     </span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
