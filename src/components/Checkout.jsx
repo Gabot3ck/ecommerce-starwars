@@ -69,10 +69,17 @@ export default function Checkout() {
 
     function validateName(e){
         const value = e.target.value;
+        const regName = / ^ [a-zA-Z] + [a-zA-Z] + $ / ;
+
         if(value !== ""){
-            setMensajeName("");
+            if(!regName.test(e.target.value)){
+                setMensajeName("Solo se permiten letras");
+            } else {
+                setMensajeName("");
+            }
+            
         } else {
-            setMensajeName("Debe ingresar su nombre y apellido")
+            setMensajeName("Debe ingresar su nombre y apellido");
         }
     }
 
@@ -97,6 +104,10 @@ export default function Checkout() {
         }
         return () => window.removeEventListener('DOMContentLoaded', handleDOMLoaded);
     }, [name,cell,email]);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
 
 
     return (<>
@@ -126,7 +137,7 @@ export default function Checkout() {
                     
                 </div>
 
-                <form className="mx-3 w-50 rounded-4 formulario">
+                <form className="mx-3 w-50 rounded-4 formulario" onSubmit={handleSubmit}>
                     <h5 className='my-4 text-center'>Ingrese sus datos personales</h5>
 
                     {/* Validación de Nombre */}
