@@ -1,7 +1,9 @@
-import './Checkout.css';
+import PhoneInput from 'react-phone-number-input'
 import { useContext, useState, useEffect } from "react";
 import { MiContext } from "../contexts/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import './Checkout.css';
+import 'react-phone-number-input/style.css'
 
 
 
@@ -92,6 +94,7 @@ export default function Checkout() {
         }
     }
 
+
     useEffect(() => {
 
         const handleDOMLoaded = () => setBtnActive(true)
@@ -152,23 +155,26 @@ export default function Checkout() {
                         type="text"
                         autoComplete='off'
                     />
-                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeName !== "" ? mensajeName : ""}</span>
+                    <span className='alerta p-0 ms-5 ps-2'>{mensajeName !== "" ? mensajeName : ""}</span>
 
                     {/* Validación de Celular */}
                     <label className='d-block text-start mx-3' htmlFor="celular"  
                     id="labelCelular" >Celular:</label>
-                    <i className="bi bi-arrow-right me-2 " id="icon2"></i>
-                    <input 
-                        onChange={(e) => setCell(e.target.value)}
-                        onBlur={validateCelu}
-                        className="form-input"
+                    <i className="bi bi-arrow-right me-3 " id="icon2"></i>
+                    <PhoneInput
+                        className='form-input'
+                        defaultCountry="CL"
+                        onChange={setCell}
+                        value={cell}
                         name="celular" 
                         id="celular" 
                         type="cell"  
                         maxLength="11"
                         autoComplete='off'
+                        onBlur={validateCelu}
                     />
-                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeCelu !== "" ? mensajeCelu : ""}</span>
+                    <span className='alerta p-0 ms-5 ps-2'>{mensajeCelu !== "" ? mensajeCelu : ""}</span>
+
 
                     {/* Validación de Email */}
                     <label className='d-block text-start mx-3' htmlFor="email" 
@@ -183,10 +189,10 @@ export default function Checkout() {
                         type="email"
                         autoComplete='off'
                     />
-                    <span className='alerta m-0 p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
+                    <span className='alerta p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
 
                     <button 
-                        className={`btn btn-warning w-50 ${btnActive ? "bloqueado" : ""} `}
+                        className={`btn btn-warning w-50 mb-3 ${btnActive ? "bloqueado" : ""} `}
                         onClick={() => handleClick()} 
                         type="submit"
                         disabled={btnActive}>

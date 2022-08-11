@@ -41,7 +41,7 @@
     background-color: var(--color-contenedor);
 }
 .form-input {
-    margin: 10px auto 20px;
+    margin: 10px auto;
     border: 1px solid var(--color-contenedor);
     width: 80%;
     height: 1.3rem;
@@ -69,8 +69,25 @@ label{
     cursor: not-allowed !important;
 }
 .alerta{
+    margin-bottom: 10px;
     display: block;
-    font-size: .9rem;
+    font-size: .85rem;
     color: #e73c29;
     text-align: start;
+}
+.input_cell{
+    width: 60%;
+    display: inline-block;
+}
+.PhoneInput{
+    display: inline-flex !important;
+}
+.PhoneInputInput{
+    margin: 10px auto;
+    border: 1px solid var(--color-contenedor);
+    height: 1.3rem;
+    display: inline-block;
+    color: white;
+    font-size: 1rem;
+    background-color: transparent;
 }
