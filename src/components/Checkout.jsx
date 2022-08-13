@@ -86,8 +86,13 @@ export default function Checkout() {
 
     function validateCelu(e){
         const value = e.target.value;
+        const regCell = /[9]\s[0-9]{4}\s[0-9]{4}/
         if(value !== ""){
-            setMensajeCelu("");
+            if(!regCell.test(e.target.value)){
+                setMensajeCelu("Ingrese un número de celular válido");
+            } else {
+                setMensajeCelu("");
+            }
         } else {
             setMensajeCelu("Debe ingresar su número de celular")
         }
