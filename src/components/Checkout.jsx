@@ -71,7 +71,7 @@ export default function Checkout() {
 
     function validateName(e){
         const value = e.target.value;
-        const regName = / ^ [a-zA-Z] + [a-zA-Z] + $ / ;
+        const regName = /^[a-zA-ZÀ-ÿ]{1,40}\s[a-zA-ZÀ-ÿ]{1,40}$/ ;
 
         if(value !== ""){
             if(!regName.test(e.target.value)){
@@ -79,7 +79,6 @@ export default function Checkout() {
             } else {
                 setMensajeName("");
             }
-            
         } else {
             setMensajeName("Debe ingresar su nombre y apellido");
         }
