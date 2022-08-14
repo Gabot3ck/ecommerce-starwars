@@ -132,7 +132,7 @@ export default function Checkout() {
     return (<>
         <section className="container mt-4 mb-4 w-75  py-2 px-4 text-center rounded-5 contenedor_cart">
             <h2 className="text-center">Resumen de compra</h2>
-            <div  className="w-100 mx-auto  my-5 p-3 rounded-3 d-flex align-items-center justify-content-evenly">
+            <div  className="w-100 mx-auto  my-5 p-3 rounded-3  wrapper_compra">
             { detalles === true && 
             <>
                 <div className="mx-3 px-2 w-50 rounded-4 detalles_checkout">
@@ -208,7 +208,7 @@ export default function Checkout() {
                     <span className='alerta p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
 
                     <button 
-                        className={`btn btn-warning w-50 mb-3 ${btnDisable ? "bloqueado" : ""} `}
+                        className={`btn btn-warning btn-warning-form mb-3 ${btnDisable ? "bloqueado" : ""} `}
                         onClick={() => handleClick()} 
                         type="submit"
                         disabled={btnDisable}>
