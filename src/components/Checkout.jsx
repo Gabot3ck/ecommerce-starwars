@@ -19,7 +19,11 @@ export default function Checkout() {
     const [mensajeEmail, setMensajeEmail] = useState("");
     const [mensajeName, setMensajeName] = useState("");
     const [mensajeCelu, setMensajeCelu] = useState("");
-    const [btnActive, setBtnActive] = useState(true);
+
+    const [activeName, setActiveName] = useState(false);
+    const [activeCell, setActiveCell] = useState(false);
+    const [activeEmail, setActiveEmail] = useState(false);
+    const [btnDisable, setBtnDisable] = useState(true);
 
     const db = getFirestore();
     const orderCollection = collection(db,"orders");
@@ -44,8 +48,6 @@ export default function Checkout() {
     }
 
 
-
-
     function validateEmail(e) {
         const valueEmail = e.target.value;
         const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -57,14 +59,17 @@ export default function Checkout() {
                 
                     if (er.test(e.target.value)) {
                         setMensajeEmail("");
+                        setActiveEmail(true)
     
                     } else {
+                        setActiveEmail(false)
                         setMensajeEmail("Debe ingresar un email válido")
                     }
                 }
                 break;
             
             default:
+                setActiveEmail(false)
                 setMensajeEmail("Debe ingresar un email válido");
         }
     }
@@ -75,11 +80,14 @@ export default function Checkout() {
 
         if(value !== ""){
             if(!regName.test(e.target.value)){
+                setActiveName(false);
                 setMensajeName("Solo se permiten letras");
             } else {
+                setActiveName(true)
                 setMensajeName("");
             }
         } else {
+            setActiveName(false);
             setMensajeName("Debe ingresar su nombre y apellido");
         }
     }
@@ -89,11 +97,14 @@ export default function Checkout() {
         const regCell = /[9]\s[0-9]{4}\s[0-9]{4}/
         if(value !== ""){
             if(!regCell.test(e.target.value)){
+                setActiveCell(false);
                 setMensajeCelu("Ingrese un número de celular válido");
             } else {
+                setActiveCell(true);
                 setMensajeCelu("");
             }
         } else {
+            setActiveCell(false);
             setMensajeCelu("Debe ingresar su número de celular")
         }
     }
@@ -101,16 +112,17 @@ export default function Checkout() {
 
     useEffect(() => {
 
-        const handleDOMLoaded = () => setBtnActive(true)
+        const handleDOMLoaded = () => setBtnDisable(true)
 
-        if(name === "" || cell === "" || email === "") {
+        if((activeName === false) || (activeCell === false) || (activeEmail === false) ) {
             window.addEventListener('DOMContentLoaded', handleDOMLoaded);
+            setBtnDisable(true);
         } else {
             window.removeEventListener('DOMContentLoaded', handleDOMLoaded)
-            setBtnActive(false)
+            setBtnDisable(false)
         }
         return () => window.removeEventListener('DOMContentLoaded', handleDOMLoaded);
-    }, [name,cell,email]);
+    }, [name, cell, email, activeName, activeCell, activeEmail]);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -196,10 +208,10 @@ export default function Checkout() {
                     <span className='alerta p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
 
                     <button 
-                        className={`btn btn-warning w-50 mb-3 ${btnActive ? "bloqueado" : ""} `}
+                        className={`btn btn-warning w-50 mb-3 ${btnDisable ? "bloqueado" : ""} `}
                         onClick={() => handleClick()} 
                         type="submit"
-                        disabled={btnActive}>
+                        disabled={btnDisable}>
                         Terminar compra
                     </button>
                     <br/>
