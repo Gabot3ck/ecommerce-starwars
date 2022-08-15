@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Checkout from './components/Checkout';
 import CartContext from './contexts/CartContext';
 import { initializeApp } from "firebase/app";
+import Footer from './components/Footer';
 
 
 
@@ -36,6 +37,7 @@ export default function App() {
           <Route path='*' element={<h1>Not Found</h1>}/>
         </Routes>
       </BrowserRouter>
-      </CartContext>
+    </CartContext>
+    <Footer/>
   </>)
 }

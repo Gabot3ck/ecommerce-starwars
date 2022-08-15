@@ -2,18 +2,12 @@
     --color-principal: #d1be19;
     --color-principalHover: #f8e74e;
 }
-
-/* .navbar{
-    background-color: black;
-} */
 .contenedor_wrap{
     padding: 0 30px;
     width: 100%;
     max-width: 1320px;
     display: flex;
     justify-content: center;
-    /* background-color: red; */
-
 }
 .navbar-collapse{
     justify-content: space-around;
