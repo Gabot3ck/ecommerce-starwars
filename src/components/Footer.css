@@ -28,7 +28,7 @@
 }
 .pie__rrss {
     margin: 0 auto;
-    width: 600px;
+    max-width: 600px;
 	padding: 0 15px;
 	text-align: center;
     align-items: center;
