@@ -3,6 +3,7 @@
     --color-principalHover: #f8e74e;
     --color-fondo: #212529;
     --color-contenedor: #181816;
+    --color-check: #0dc553;
 }
 .wrapper_compra{
     display: flex;
@@ -99,6 +100,10 @@ label{
 .btn-warning-form{
     width: 50%;
     max-width: 180px;
+}
+.bi-check-circle{
+    font-size: 3rem;
+    color: var(--color-check);
 }
 
 

@@ -2,6 +2,7 @@ import PhoneInput from 'react-phone-number-input'
 import { useContext, useState, useEffect } from "react";
 import { MiContext } from "../contexts/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
+import Spinner from './Spinner';
 import './Checkout.css';
 import 'react-phone-number-input/style.css'
 
@@ -12,9 +13,11 @@ export default function Checkout() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [cell, setCell] = useState('');
-    const [detalles, setDetalles] = useState(true);
     const [idCompra, setIdCompra] = useState("");
     const {cart, precioTotal} = useContext(MiContext);
+
+    const [detalles, setDetalles] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     
     const [mensajeEmail, setMensajeEmail] = useState("");
     const [mensajeName, setMensajeName] = useState("");
@@ -44,6 +47,7 @@ export default function Checkout() {
 
         addDoc(orderCollection, order).then(({id}) => {
             setIdCompra(id)
+            setIsLoading(false)
         })
     }
 
@@ -131,7 +135,7 @@ export default function Checkout() {
 
     return (<>
         <section className="container mt-4 mb-4 w-75  py-2 px-4 text-center rounded-5 contenedor_cart">
-            <h2 className="text-center">Resumen de compra</h2>
+            <h2 className="text-center text-white">Resumen de compra</h2>
             <div  className="w-100 mx-auto  my-5 p-3 rounded-3  wrapper_compra">
             { detalles === true && 
             <>
@@ -222,8 +226,16 @@ export default function Checkout() {
             { detalles === false &&
             <>
                 <div className='d-flex flex-column justify-content-center align-items-center'>
-                    <p>Su orden se realizó correctamente con el código:</p> <br/>
-                    <h4>{idCompra}</h4>
+                    {isLoading ? 
+                    <Spinner /> : 
+                    <>
+                        <div>
+                        <p className="text-white">Su orden se realizó correctamente con el código:</p> <br/>
+                            <i className="bi bi-check-circle"></i>
+                            <h3 className="mt-3">{idCompra}</h3>
+                        </div>
+                        
+                    </>}
                 </div>
                 
             </>

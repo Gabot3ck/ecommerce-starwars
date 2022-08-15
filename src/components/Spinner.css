@@ -1,0 +1,12 @@
+.wrapper_spinner{
+    margin: 0 auto 0;
+    width: 100%;
+    max-width: 1340px;
+    height: 60vh;
+    flex-direction: column;
+    /* background-color: red; */
+}
+.spinner-border{
+    width: 3rem;
+    height: 3rem;
+}
