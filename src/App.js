@@ -9,6 +9,7 @@ import Checkout from './components/Checkout';
 import CartContext from './contexts/CartContext';
 import { initializeApp } from "firebase/app";
 import Footer from './components/Footer';
+import Error404 from './components/Error404';
 
 
 
@@ -34,7 +35,7 @@ export default function App() {
           <Route path='/cart' element={<Cart />}/>
           <Route path='/contacto' element={<Contacto />}/>
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='*' element={<h1>Not Found</h1>}/>
+          <Route path='*' element={<Error404/>}/>
         </Routes>
       </BrowserRouter>
     </CartContext>
