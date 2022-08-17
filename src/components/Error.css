@@ -5,11 +5,11 @@
     --color-contenedor: #181816;
     --color-check: #0dc553;
 }
-img{
+.wrapper_error img{
     width: 50%;
     max-width: 650px;
 }
-.container{
+.wrapper_error{
     height: 100vh;
     max-height: 560px;
     display: flex;
@@ -18,11 +18,11 @@ img{
     align-items: center;
     justify-content: center;
 }
-h1{
+.wrapper_error h1{
     color: var(--color-principal);
     font-size: 3.8rem;
 }
-p{
+.wrapper_error p{
     color: rgb(233, 238, 245);
     font-size: 20px;
     padding: 20px;
@@ -42,10 +42,10 @@ p{
 }
 
 @media screen and (max-width:630px){
-    h1{        
+    .wrapper_error h1{        
         font-size: 3.2rem;        
     }
-    p{
+    .wrapper_error p{
         font-size: 15px;
     }
 }
