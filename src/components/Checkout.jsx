@@ -15,7 +15,7 @@ export default function Checkout() {
     const [email, setEmail] = useState('');
     const [cell, setCell] = useState('');
     const [idCompra, setIdCompra] = useState("");
-    const {cart, precioTotal} = useContext(MiContext);
+    const {cart, precioTotal, removeCant} = useContext(MiContext);
 
     const [detalles, setDetalles] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -213,8 +213,8 @@ export default function Checkout() {
                     <span className='alerta p-0 ms-5 ps-2'>{mensajeEmail !== "" ? mensajeEmail : ""}</span>
 
                     <button 
-                        className={`btn btn-warning btn-warning-form mb-3 ${btnDisable ? "bloqueado" : ""} `}
-                        onClick={() => handleClick()} 
+                        className={`btn btn-warning btn-warning-form ${btnDisable ? "bloqueado" : ""} `}
+                        onClick={() => {handleClick() ; removeCant()}} 
                         type="submit"
                         disabled={btnDisable}>
                         Terminar compra

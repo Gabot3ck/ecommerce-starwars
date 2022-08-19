@@ -37,13 +37,17 @@ export default function CartContext( {children} ) {
         return  cart.reduce((acc,item) => acc += item.cantidad, 0)
     }
 
+    const removeCant = () => {
+        setCart([]);
+    }
+
     const precioTotal = () => {
         return cart.reduce((acc,item) => acc += item.cantidad * item.precio, 0) 
     }
 
 
     return (<>
-        <MiContext.Provider value={{cart, isInCart, addItem, removeItem, clear, enviarCant, precioTotal}}>
+        <MiContext.Provider value={{cart, isInCart, addItem, removeItem, clear, enviarCant, precioTotal, removeCant}}>
             {children}
         </MiContext.Provider>
     </>)
