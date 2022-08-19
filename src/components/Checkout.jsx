@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { MiContext } from "../contexts/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import Spinner from './Spinner';
+import {Link} from 'react-router-dom';
 import './Checkout.css';
 import 'react-phone-number-input/style.css'
 
@@ -233,6 +234,7 @@ export default function Checkout() {
                         <p className="text-white">Su orden se realizó correctamente con el código:</p> <br/>
                             <i className="bi bi-check-circle"></i>
                             <h3 className="mt-3">{idCompra}</h3>
+                            <Link to={`/`} class="btn btn-warning mt-3 w-50">Ir al inicio</Link>
                         </div>
                         
                     </>}
