@@ -16,7 +16,7 @@ function NavBar() {
         <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
             <div className="container-fluid contenedor_wrap">
                 <Link className="navbar-brand" to="/">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt="" width="62" height="30" className="d-inline-block align-text-top me-3">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png" alt="Logo StarWars" className="d-inline-block align-text-top me-3">
                     </img>
                     Star Wars Store
                 </Link>

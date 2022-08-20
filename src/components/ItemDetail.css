@@ -4,6 +4,7 @@
     --color-fondo: #212427;
 }
 .card-detail{
+    margin: 20px auto 0;
     width: 380px;
     height: contain;
 }
@@ -55,4 +56,12 @@
     font-size: 15px;
     text-align: left;
     color: white;
+}
+
+/*MEDIA  QUERIES*/
+@media (min-width:320px) and (max-width:412px){
+    .card-detail{
+        margin: 20px 5px 0;
+        width: 300px;
+    }
 }

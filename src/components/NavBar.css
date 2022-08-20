@@ -9,6 +9,10 @@
     display: flex;
     justify-content: center;
 }
+.contenedor_wrap .navbar-brand img{
+    width: 62px;
+    height: 30px;
+}
 .navbar-collapse{
     justify-content: space-around;
 }
@@ -35,4 +39,19 @@
 .hamburger.is-active .hamburger-inner:after
 {
     background-color: var(--color-principal);
+}
+
+/* MEDIA  QUERIES*/
+
+@media (min-width:320px) and (max-width:359px){
+    .contenedor_wrap{
+        padding: 0 15px;
+    }
+    .contenedor_wrap .navbar-brand img{
+        width: 58px;
+        height: 28px;
+    }
+    .navbar-toggler{
+        padding: 15px 5px;
+    }
 }
