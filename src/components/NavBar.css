@@ -43,7 +43,7 @@
 
 /* MEDIA  QUERIES*/
 
-@media (min-width:320px) and (max-width:359px){
+@media (min-width:300px) and (max-width:359px){
     .contenedor_wrap{
         padding: 0 15px;
     }
