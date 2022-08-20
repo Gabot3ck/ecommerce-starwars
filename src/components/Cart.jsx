@@ -30,10 +30,10 @@ export default function Cart() {
                             </>) 
                         })}
                     </div>
-                    <div className='m-4 p-3 rounded-3 contenedor_total'>
+                    <div className='mx-1 mx-sm-4 mt-4 mb-3 p-2 p-sm-3 rounded-3 contenedor_total'>
                         <h5>Total a pagar: CLP $ {precioTotal()} ({enviarCant()} producto/s) </h5>
                         <div className='mt-4'>
-                            <Link className="btn btn-warning w-25 me-3" to={"/checkout"}>Finalizar compra</Link>
+                            <Link className="btn btn-warning  me-3" to={"/checkout"}>Finalizar compra</Link>
                             <button onClick={()=> clear()} className="btn btn-second" >Vaciar Carrito</button>
                         </div>
                     </div>

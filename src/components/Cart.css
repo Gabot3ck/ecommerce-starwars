@@ -80,16 +80,28 @@
     color: black;
     background-color: var(--color-principal);
 }
+.contenedor_total .btn-warning{
+    width: 25%;
+}
 
 /*MEDIA  QUERIES*/
 @media (min-width:320px) and (max-width:414px){
     .contenedor__detalles{
         font-size: 14px;
     }
+    .contenedor__detalles .detalle__producto .foto{
+        height: 40px;
+    }
     .producto, .precioUni, .precioTot{
         font-size: 13px;
     }
     .eliminar{
         justify-self: center;
+    }
+    .contenedor_total h5{
+        font-size: 16px;
+    }
+    .contenedor_total .btn-warning{
+        width: 50%;
     }
 }
