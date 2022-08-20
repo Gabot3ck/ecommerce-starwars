@@ -101,7 +101,7 @@
     .contenedor_total h5{
         font-size: 16px;
     }
-    .contenedor_total .btn-warning{
+    .contenedor_total .btn-warning, .contenedor_total .btn-second{
         width: 50%;
     }
 }

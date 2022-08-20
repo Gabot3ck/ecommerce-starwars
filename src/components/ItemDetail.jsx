@@ -18,7 +18,7 @@ function ItemDetail({ item }) {
     };
 
     return (<>
-        <div className="card card-detail bg-dark">
+        <div className="card card-detail bg-dark mx-auto">
             <img src={image} className="card-img-top mx-auto imagen-detail" alt="..."></img>
             <div className="card-body text-center">
                 <p className="card-subtitle mb-2 ">$CLP {precio}</p>
