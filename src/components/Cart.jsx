@@ -8,11 +8,11 @@ export default function Cart() {
 
     const {cart,clear,removeItem,precioTotal, enviarCant} = useContext(MiContext)
     return (<>
-        <div className='container mt-4 mb-4 w-75  p-2 text-center rounded-5 contenedor_cart'>
+        <div className='container mt-4 mb-4 w-75 p-1 p-sm-2 text-center rounded-5 contenedor_cart'>
             <h2>Carrito</h2>
             { cart.length > 0 && 
                 <>
-                    <div className='m-4 py-2 rounded-4 contenedor__detalles'>
+                    <div className='m-1 m-sm-4 py-2 rounded-4 contenedor__detalles'>
                         <p className='titulo'>Producto</p>
                         <p className='tituloUni'>Precio unitario</p>
                         <p className='tituloTot'>Precio total</p>

@@ -80,3 +80,16 @@
     color: black;
     background-color: var(--color-principal);
 }
+
+/*MEDIA  QUERIES*/
+@media (min-width:320px) and (max-width:414px){
+    .contenedor__detalles{
+        font-size: 14px;
+    }
+    .producto, .precioUni, .precioTot{
+        font-size: 13px;
+    }
+    .eliminar{
+        justify-self: center;
+    }
+}

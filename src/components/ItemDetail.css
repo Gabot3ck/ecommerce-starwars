@@ -8,6 +8,9 @@
     width: 380px;
     height: contain;
 }
+.btn-second{
+    width: 50%;
+}
 .imagen-detail{
     width: 50%;
     height: 50%;
@@ -63,5 +66,8 @@
     .card-detail{
         margin: 20px 5px 0;
         width: 300px;
+    }
+    .btn-second{
+        width: 90%;
     }
 }
