@@ -83,7 +83,7 @@
     color: black;
     background-color: var(--color-principal);
 }
-.contenedor_total .btn-warning{
+.contenedor_total .btn-warning, .contenedor_total .btn-second{
     width: 25%;
 }
 
@@ -101,8 +101,11 @@
     .contenedor_total h5{
         font-size: 16px;
     }
+    .contenedor_total .btn-warning, .contenedor_total .btn-second{
+        width: 50%;
+    }
 }
-@media (min-width:320px) and (max-width:768px){
+@media (min-width:415px) and (max-width:768px){
     .contenedor_total .btn-warning, .contenedor_total .btn-second{
         width: 50%;
         max-width: 150px;
