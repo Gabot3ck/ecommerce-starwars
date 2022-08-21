@@ -105,5 +105,6 @@
 @media (min-width:320px) and (max-width:768px){
     .contenedor_total .btn-warning, .contenedor_total .btn-second{
         width: 50%;
+        max-width: 150px;
     }
 }

@@ -34,7 +34,7 @@ export default function Cart() {
                         <h5>Total a pagar: CLP $ {precioTotal()} ({enviarCant()} producto/s) </h5>
                         <div className='mt-4'>
                             <Link className="btn btn-warning d-block mx-auto" to={"/checkout"}>Finalizar compra</Link>
-                            <button onClick={()=> clear()} className="btn btn-second" >Vaciar Carrito</button>
+                            <button onClick={()=> clear()} className="btn btn-second mt-3" >Vaciar Carrito</button>
                         </div>
                     </div>
                 </>
