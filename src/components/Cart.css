@@ -60,6 +60,9 @@
 }
 .eliminar{
     grid-area: eliminar;
+    justify-self: center;
+
+
 }
 .btn-vaciar{
     border: none;
@@ -95,12 +98,11 @@
     .producto, .precioUni, .precioTot{
         font-size: 13px;
     }
-    .eliminar{
-        justify-self: center;
-    }
     .contenedor_total h5{
         font-size: 16px;
     }
+}
+@media (min-width:320px) and (max-width:768px){
     .contenedor_total .btn-warning, .contenedor_total .btn-second{
         width: 50%;
     }
